@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birendra Kumar Sharma - Senior Software Engineer</title>
+    <meta name="description" content="Senior Software Engineer with 6+ years of experience in scalable backend and cloud-native systems on AWS and Azure.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --accent: #ec4899;
+            --success: #10b981;
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0a0f;
+            color: #e5e7eb;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated mesh gradient background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+            animation: meshMove 20s ease infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        @keyframes meshMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(99, 102, 241, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
+        }
+        
+        /* Main content wrapper */
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Glassmorphism header with 3D effect */
+        .glass-header {
+            background: rgba(15, 15, 25, 0.8);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-header.scrolled {
+            background: rgba(15, 15, 25, 0.95);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* 3D Card effect */
+        .card-3d {
+            background: rgba(20, 20, 30, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 24px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-3d::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        
+        .card-3d:hover {
+            transform: translateY(-8px) rotateX(2deg);
+            box-shadow: 
+                0 20px 60px rgba(99, 102, 241, 0.3),
+                0 8px 32px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+        
+        .card-3d:hover::before {
+            opacity: 1;
+        }
+        
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Animated buttons */
+        .btn-modern {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-modern::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(99, 102, 241, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .btn-modern:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .btn-modern:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.6);
+        }
+        
+        /* Scroll reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px) rotateX(10deg);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0) rotateX(0);
+        }
+        
+        /* Timeline for experience */
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: -3rem;
+            width: 2px;
+            background: linear-gradient(180deg, #6366f1, #8b5cf6, #ec4899);
+            opacity: 0.3;
+        }
+        
+        .timeline-item:last-child::before {
+            display: none;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0.25rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        
+        /* Progress bars for skills */
+        .progress-container {
+            position: relative;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Skill tags with 3D effect */
+        .skill-tag-3d {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 12px;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            transform: scale(0.8) translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        .skill-tag-3d.visible {
+            opacity: 1;
+            transform: scale(1) translateZ(0);
+        }
+        
+        .skill-tag-3d:hover {
+            transform: scale(1.1) translateY(-4px) translateZ(0);
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.6);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+        }
+        
+        /* Achievement items */
+        .achievement-item {
+            position: relative;
+            padding-left: 2rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .achievement-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10b981, #059669);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        /* Icon animations */
+        .icon-float {
+            animation: iconFloat 3s ease-in-out infinite;
+        }
+        
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        /* Stats counter animation */
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .card-3d {
+                background: white !important;
+                backdrop-filter: none !important;
+                box-shadow: none !important;
+                border: 1px solid #e5e7eb !important;
+            }
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .card-3d:hover {
+                transform: translateY(-4px);
+            }
+            .timeline-item {
+                padding-left: 2rem;
+            }
+        }
+        
+        /* Section divider */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), transparent);
+            margin: 3rem 0;
+        }
+        
+        /* Glow effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+    
+    <div class="content-wrapper">
+        <!-- Header -->
+        <header class="glass-header" id="header">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div class="reveal">
+                        <h1 class="text-4xl md:text-5xl font-bold gradient-text mb-2">Birendra Kumar Sharma</h1>
+                        <p class="text-lg md:text-xl text-gray-400 font-medium">Senior Software Engineer</p>
+                        <div class="flex gap-4 mt-4">
+                            <span class="text-sm text-gray-500">6+ Years Experience</span>
+                            <span class="text-sm text-gray-500">•</span>
+                            <span class="text-sm text-gray-500">AWS & Azure Cloud Expert</span>
+                            <span class="text-sm text-gray-500">•</span>
+                            <span class="text-sm text-gray-500">Hyderabad, India</span>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-3 reveal">
+                        <a href="mailto:kumarbeeru.kbs@gmail.com" 
+                           class="btn-modern inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium no-print"
+                           id="emailBtn">
+                            <i data-lucide="mail" class="w-4 h-4"></i>
+                            <span>Email</span>
+                        </a>
+                        <a href="tel:+9197098579" 
+                           class="btn-modern inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium no-print">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            <span>Phone</span>
+                        </a>
+                        <a href="https://linkedin.com/in/birendrakr" 
+                           target="_blank"
+                           class="btn-modern inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="BirendarKumarSharma.pdf" 
+                           download="BirendraKumarSharma_Resume.pdf"
+                           class="btn-modern inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 no-print"
+                           style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(5, 150, 105, 0.2)); border: 1px solid rgba(16, 185, 129, 0.4);">
+                            <i data-lucide="file-text" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Download PDF</span>
+                            <span class="sm:hidden">PDF</span>
+                        </a>
+                        <button onclick="window.print()" 
+                                class="btn-modern inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white font-medium no-print">
+                            <i data-lucide="printer" class="w-4 h-4"></i>
+                            <span class="hidden sm:inline">Print</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <!-- Stats Section -->
+            <section class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 reveal">
+                <div class="card-3d p-6 text-center">
+                    <div class="stat-number" data-target="6">0</div>
+                    <p class="text-gray-400 text-sm mt-2">Years Experience</p>
+                </div>
+                <div class="card-3d p-6 text-center">
+                    <div class="stat-number" data-target="2">0</div>
+                    <p class="text-gray-400 text-sm mt-2">Billion Events/Day</p>
+                </div>
+                <div class="card-3d p-6 text-center">
+                    <div class="stat-number" data-target="6">0</div>
+                    <p class="text-gray-400 text-sm mt-2">Engineers Mentored</p>
+                </div>
+                <div class="card-3d p-6 text-center">
+                    <div class="stat-number" data-target="30">0</div>
+                    <p class="text-gray-400 text-sm mt-2">% Defects Reduced</p>
+                </div>
+            </section>
+
+            <!-- Professional Summary -->
+            <section class="mb-12 reveal">
+                <div class="card-3d p-8 md:p-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 flex items-center gap-3">
+                        <i data-lucide="user" class="w-8 h-8 text-indigo-400 icon-float"></i>
+                        <span class="gradient-text">Professional Summary</span>
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed text-lg md:text-xl">
+                        Senior Software Engineer with <span class="text-indigo-400 font-bold">6+ years of experience</span> designing and building scalable backend and
+                        cloud-native systems on <span class="text-indigo-400 font-bold">AWS and Azure</span>. Strong expertise in distributed system design, event-driven
+                        architectures, and high-scale data systems, with hands-on delivery of payment and commerce platforms
+                        processing up to <span class="text-pink-400 font-bold">~2B events daily</span>. Proven ability to lead engineering teams, drive architectural decisions,
+                        and deliver reliable, high-performance microservices in production.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Two Column Layout -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Column - Experience -->
+                <div class="lg:col-span-2 space-y-8">
+                    <!-- Experience Section -->
+                    <section class="reveal">
+                        <div class="card-3d p-8 md:p-10">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3">
+                                <i data-lucide="briefcase" class="w-8 h-8 text-indigo-400 icon-float"></i>
+                                <span class="gradient-text">Professional Experience</span>
+                            </h2>
+                            
+                            <!-- Experience 1 - Kaara Info System -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                                    <div>
+                                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Technology Consultant</h3>
+                                        <p class="text-indigo-400 font-semibold text-lg">Kaara Info System — Hyderabad, IN</p>
+                                    </div>
+                                    <span class="text-gray-400 text-sm md:text-base font-medium mt-2 md:mt-0 bg-indigo-500/20 px-4 py-1.5 rounded-full border border-indigo-500/30">Apr 2025 – Present</span>
+                                </div>
+                                <div class="space-y-4 mt-6">
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Diagnosed and resolved critical architectural and production issues, ensuring system stability and preventing potential downtime in a platform processing <span class="text-green-400 font-bold">~2B events daily</span>.
+                                        </p>
+                                    </div>
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Developed <span class="text-indigo-400 font-bold">PL/pgSQL functions</span> and database-level logic for transaction safety, reporting, and performance optimization — migrating <span class="text-green-400 font-bold">10+ reports</span> and multiple workflows into PostgreSQL.
+                                        </p>
+                                    </div>
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Core member of the architecture team — participating in design reviews, trade-off analysis, and long-term scalability planning.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Experience 2 - Marmeto -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                                    <div>
+                                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Lead Software Engineer</h3>
+                                        <p class="text-indigo-400 font-semibold text-lg">Marmeto | Commerce Digital Transformation — Bangalore, IN</p>
+                                    </div>
+                                    <span class="text-gray-400 text-sm md:text-base font-medium mt-2 md:mt-0 bg-indigo-500/20 px-4 py-1.5 rounded-full border border-indigo-500/30">Nov 2021 – Mar 2025</span>
+                                </div>
+                                <div class="space-y-4 mt-6">
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Led and mentored a team of <span class="text-green-400 font-bold">6 engineers</span>, increasing delivery velocity by ~20% and reducing production defects by ~30%.
+                                        </p>
+                                    </div>
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Architected and developed multiple <span class="text-indigo-400 font-bold">Shopify public applications</span> at scale using Node.js, Laravel, MongoDB, MySQL, and AWS.
+                                        </p>
+                                    </div>
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Designed event-driven backend systems using <span class="text-indigo-400 font-bold">AWS EventBridge, SQS, SNS, and Lambda</span>. Built a secure, scalable payment gateway with PostgreSQL, Node.js, WAF, and cloud security best practices.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Experience 3 - Web Revolution -->
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                                    <div>
+                                        <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">Software Developer</h3>
+                                        <p class="text-indigo-400 font-semibold text-lg">Web Revolution — Ahmedabad, IN</p>
+                                    </div>
+                                    <span class="text-gray-400 text-sm md:text-base font-medium mt-2 md:mt-0 bg-indigo-500/20 px-4 py-1.5 rounded-full border border-indigo-500/30">Dec 2019 – Nov 2021</span>
+                                </div>
+                                <div class="space-y-4 mt-6">
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Improved backend and frontend performance by <span class="text-green-400 font-bold">30–40%</span> through caching strategies, database query optimization, and code-level improvements.
+                                        </p>
+                                    </div>
+                                    <div class="card-3d p-5 bg-indigo-500/5 border-indigo-500/20">
+                                        <p class="text-gray-300 leading-relaxed">
+                                            Designed and developed secure crypto wallet APIs with authentication & encryption. Built a <span class="text-indigo-400 font-bold">React + Laravel admin panel</span> with RBAC and analytics.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Projects Section -->
+                    <section class="reveal">
+                        <div class="card-3d p-8 md:p-10">
+                            <h2 class="text-3xl md:text-4xl font-bold mb-8 flex items-center gap-3">
+                                <i data-lucide="folder-open" class="w-8 h-8 text-pink-400 icon-float"></i>
+                                <span class="gradient-text">Key Projects</span>
+                            </h2>
+
+                            <!-- Biblotheca -->
+                            <div class="card-3d p-6 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-indigo-900/20 border-pink-500/20 mb-6">
+                                <h3 class="text-xl font-bold text-white mb-1">Biblotheca</h3>
+                                <p class="text-sm text-gray-400 mb-2">Fullstack Engineer | Apr 2025 – Present</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs px-2 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Node.js</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">React</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">TypeScript</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">PostgreSQL</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">Azure</span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed">Resolved critical production issues, designed PL/pgSQL reporting workflows, and served as a core architecture team member driving scalability discussions.</p>
+                            </div>
+
+                            <!-- Qwikcilver -->
+                            <div class="card-3d p-6 bg-gradient-to-br from-green-900/20 via-emerald-900/10 to-teal-900/20 border-green-500/20 mb-6">
+                                <h3 class="text-xl font-bold text-white mb-1">Qwikcilver – Gift Cards & Refunds</h3>
+                                <p class="text-sm text-gray-400 mb-2">Solution Architect & Lead | Apr 2023 – Mar 2025</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">MERN Stack</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">AWS EC2</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">EventBridge</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-300 border border-green-500/30">S3</span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed">Architected a scalable gift card & refund platform with real-time transaction processing. Owned the entire SDLC from architecture to deployment.</p>
+                            </div>
+
+                            <!-- FastPay -->
+                            <div class="card-3d p-6 bg-gradient-to-br from-blue-900/20 via-cyan-900/10 to-indigo-900/20 border-blue-500/20">
+                                <h3 class="text-xl font-bold text-white mb-1">Shopify Payment Gateway: FastPay</h3>
+                                <p class="text-sm text-gray-400 mb-2">Full Stack Engineer | Jun 2022 – Dec 2022</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">React</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Node.js</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">TypeScript</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Postgres</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">Docker</span>
+                                    <span class="text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-300 border border-blue-500/30">AWS Lambda</span>
+                                </div>
+                                <p class="text-gray-300 text-sm leading-relaxed">Designed and built a secure payment gateway with event-driven workflows using AWS EventBridge and Lambda. Established CI/CD pipelines with Docker.</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="lg:col-span-1 space-y-8">
+                    <!-- Core Competencies -->
+                    <section class="reveal">
+                        <div class="card-3d p-6 md:p-8">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="code" class="w-7 h-7 text-indigo-400"></i>
+                                <span class="gradient-text">Core Competencies</span>
+                            </h2>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h3 class="font-bold text-gray-300 flex items-center gap-2 text-base">
+                                            <i data-lucide="cloud" class="w-5 h-5 text-blue-400"></i>
+                                            Cloud & Infrastructure
+                                        </h3>
+                                        <span class="text-xs text-gray-500">Expert</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" data-progress="95"></div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mt-3" id="cloud-skills">
+                                        <span class="skill-tag-3d text-blue-300">AWS</span>
+                                        <span class="skill-tag-3d text-blue-300">Azure</span>
+                                        <span class="skill-tag-3d text-blue-300">Docker</span>
+                                        <span class="skill-tag-3d text-blue-300">GitHub Actions</span>
+                                        <span class="skill-tag-3d text-blue-300">RMQ</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h3 class="font-bold text-gray-300 flex items-center gap-2 text-base">
+                                            <i data-lucide="server" class="w-5 h-5 text-green-400"></i>
+                                            Backend
+                                        </h3>
+                                        <span class="text-xs text-gray-500">Expert</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" data-progress="98"></div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mt-3" id="backend-skills">
+                                        <span class="skill-tag-3d text-green-300">Node.js</span>
+                                        <span class="skill-tag-3d text-green-300">Express.js</span>
+                                        <span class="skill-tag-3d text-green-300">Go</span>
+                                        <span class="skill-tag-3d text-green-300">PostgreSQL</span>
+                                        <span class="skill-tag-3d text-green-300">MongoDB</span>
+                                        <span class="skill-tag-3d text-green-300">Redis</span>
+                                        <span class="skill-tag-3d text-green-300">REST APIs</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h3 class="font-bold text-gray-300 flex items-center gap-2 text-base">
+                                            <i data-lucide="layout" class="w-5 h-5 text-purple-400"></i>
+                                            Frontend
+                                        </h3>
+                                        <span class="text-xs text-gray-500">Advanced</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" data-progress="85"></div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mt-3" id="frontend-skills">
+                                        <span class="skill-tag-3d text-purple-300">JavaScript (ES6+)</span>
+                                        <span class="skill-tag-3d text-purple-300">TypeScript</span>
+                                        <span class="skill-tag-3d text-purple-300">React</span>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <div class="flex items-center justify-between mb-2">
+                                        <h3 class="font-bold text-gray-300 flex items-center gap-2 text-base">
+                                            <i data-lucide="users" class="w-5 h-5 text-orange-400"></i>
+                                            Leadership & Tools
+                                        </h3>
+                                        <span class="text-xs text-gray-500">Expert</span>
+                                    </div>
+                                    <div class="progress-container">
+                                        <div class="progress-bar" data-progress="92"></div>
+                                    </div>
+                                    <div class="flex flex-wrap gap-2 mt-3" id="leadership-skills">
+                                        <span class="skill-tag-3d text-orange-300">System Design (HLD & LLD)</span>
+                                        <span class="skill-tag-3d text-orange-300">Microservices</span>
+                                        <span class="skill-tag-3d text-orange-300">Agile/Scrum</span>
+                                        <span class="skill-tag-3d text-orange-300">Code Reviews</span>
+                                        <span class="skill-tag-3d text-orange-300">Jest / Supertest</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Education -->
+                    <section class="reveal">
+                        <div class="card-3d p-6 md:p-8">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4 flex items-center gap-2">
+                                <i data-lucide="graduation-cap" class="w-7 h-7 text-indigo-400"></i>
+                                <span class="gradient-text">Education</span>
+                            </h2>
+                            <div class="pt-2">
+                                <h3 class="font-bold text-white text-lg mb-1">Bachelor of Computer Application (BCA)</h3>
+                                <p class="text-gray-300 font-medium">T.M.B.U Bhagalpur</p>
+                                <p class="text-sm text-gray-500 mt-2">Graduated May 2019</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Key Achievements -->
+                    <section class="reveal">
+                        <div class="card-3d p-6 md:p-8">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-6 flex items-center gap-2">
+                                <i data-lucide="award" class="w-7 h-7 text-yellow-400"></i>
+                                <span class="gradient-text">Key Achievements</span>
+                            </h2>
+                            <ul class="space-y-4">
+                                <li class="achievement-item flex gap-3 group">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-gray-300 leading-relaxed">Platform processing <strong class="text-green-400">~2B events daily</strong> with ensured stability</span>
+                                </li>
+                                <li class="achievement-item flex gap-3 group">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-gray-300 leading-relaxed">Led team of <strong class="text-green-400">6 engineers</strong>, boosting velocity by ~20%</span>
+                                </li>
+                                <li class="achievement-item flex gap-3 group">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-gray-300 leading-relaxed">Reduced production defects by <strong class="text-green-400">~30%</strong></span>
+                                </li>
+                                <li class="achievement-item flex gap-3 group">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-gray-300 leading-relaxed">Migrated <strong class="text-green-400">10+ reports</strong> and workflows into PostgreSQL</span>
+                                </li>
+                                <li class="achievement-item flex gap-3 group">
+                                    <i data-lucide="check-circle" class="w-6 h-6 text-green-400 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform"></i>
+                                    <span class="text-gray-300 leading-relaxed">Improved performance by <strong class="text-green-400">30–40%</strong> via caching & query optimization</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="glass-header border-t border-indigo-500/20 mt-12 py-6">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm space-y-2">
+                <p>© 2026 Birendra Kumar Sharma. Built with modern web technologies & advanced animations.</p>
+                <p class="text-xs text-gray-500">This is an online presentation. <a href="BirendarKumarSharma.pdf" download class="text-indigo-400 hover:text-indigo-300 underline">Download PDF Resume</a> for traditional format.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (10 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        createParticles();
+        
+        // Header scroll effect
+        const header = document.getElementById('header');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+        
+        // Copy email to clipboard
+        document.getElementById('emailBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = 'kumarbeeru.kbs@gmail.com';
+            navigator.clipboard.writeText(email).then(() => {
+                const originalText = this.querySelector('span').textContent;
+                const icon = this.querySelector('i');
+                this.querySelector('span').textContent = 'Copied!';
+                icon.setAttribute('data-lucide', 'check');
+                lucide.createIcons();
+                setTimeout(() => {
+                    this.querySelector('span').textContent = originalText;
+                    icon.setAttribute('data-lucide', 'mail');
+                    lucide.createIcons();
+                }, 2000);
+            });
+        });
+        
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Animate skill tags with stagger
+        function animateSkillTags() {
+            const skillContainers = ['cloud-skills', 'backend-skills', 'frontend-skills', 'leadership-skills'];
+            skillContainers.forEach((containerId, containerIndex) => {
+                const container = document.getElementById(containerId);
+                if (container) {
+                    const tags = container.querySelectorAll('.skill-tag-3d');
+                    tags.forEach((tag, index) => {
+                        setTimeout(() => {
+                            tag.classList.add('visible');
+                        }, (containerIndex * 200) + (index * 50));
+                    });
+                }
+            });
+        }
+        
+        // Animate progress bars
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const progress = bar.getAttribute('data-progress');
+                setTimeout(() => {
+                    bar.style.width = progress + '%';
+                }, 500);
+            });
+        }
+        
+        // Animate achievement items
+        function animateAchievements() {
+            const achievements = document.querySelectorAll('.achievement-item');
+            achievements.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+        
+        // Animate stats counter
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 30);
+        }
+        
+        // Trigger animations when stats section is visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.getAttribute('data-target'));
+                        animateCounter(stat, target);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        
+        const statsSection = document.querySelector('.grid.grid-cols-2');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+        
+        // Trigger animations when skills section is visible
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillTags();
+                    animateProgressBars();
+                    animateAchievements();
+                    skillsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        const skillsSection = document.querySelector('#cloud-skills')?.closest('section');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
+        
+        // Smooth reveal on page load
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                document.body.style.transition = 'opacity 0.5s ease-in';
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
